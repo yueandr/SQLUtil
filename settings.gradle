@@ -1,0 +1,2 @@
+include ':app', ':framework'
+rootProject.name='SQLUtil'

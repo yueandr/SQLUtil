@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FillTextView">
+        <attr name="fillContent" format="string"/>
+        <attr name="isSignEnd" format="boolean"/>
+        <attr name="defalutColor" format="color"></attr>
+    </declare-styleable>
+</resources>
