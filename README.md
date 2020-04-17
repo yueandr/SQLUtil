@@ -740,7 +740,7 @@ JAVA对象转数据库类型的键值对`ContetnValues`获取:
 
 执行前：
 
-![alt 执行前Bean.class]( "执行前Bean.class")
+![alt 执行前Bean.class](picture/1.png "执行前Bean.class")
 </br>
 ![alt 执行前Model.class]( "执行前Model.class")
 
