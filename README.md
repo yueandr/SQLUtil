@@ -740,9 +740,9 @@ JAVA对象转数据库类型的键值对`ContetnValues`获取:
 
 执行前：
 
-![alt 执行前Bean.class](picture/1.png "执行前Bean.class")
+![alt 执行前Bean.class](https://img-blog.csdnimg.cn/20200416175951450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J5eHlycQ==,size_16,color_FFFFFF,t_70#pic_center "执行前Bean.class")
 </br>
-![alt 执行前Model.class]( "执行前Model.class")
+![alt 执行前Model.class](https://github.com/yueandr/SQLUtil/blob/master/picture/1.png "执行前Model.class")
 
 执行后：
 
