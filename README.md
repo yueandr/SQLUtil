@@ -1,26 +1,15 @@
 
 # 数据库代码自动生成器
 
+**本代码是基于Android平台的SQLite的SQLiteOpenHelper来自动构建相关代码，可根据自身需要添加注解或完全不注解。默认不注解则认为该实体Bean类的所有非静态常量都需要建表列，如果该实体Bean没有_id属性，则新增_id属性用来关联主键，否则自动默认_id为主键或以注解指定的属性为主键列。**
 
-有时候使用数据库框架来操作数据库数据对我们的App来讲并不一定十分适用，其实使用Google提供的`SQLiteOpenHelper`也十分直观，在数据库框架还没有流行的时候，我们的App也基本都是用的是这种方式对数据库的处理。
-
-但有时候一个App里可能会存在N多张表，又懒的用框架写那么多注释构建再拷贝代码，但使用`SQLiteOpenHelper`同样也有大量的重复性代码，或者是同模式的代码。于是，根据自己所开发的App大部分功能来看，归纳了这几点数据库操作需求：
-
-1. 创建表的语句
-2. 基本的增删改查，其中删改查根据主键_id作为条件
-3. 增删改查语句中，不可避免的Java对象和数据库数据的相互转换
-4. Java实体类和数据库列名之间的对应关系（方便我们纠错排查）
-
-基于这几点需求，我们初步定一下我们的实现方案：
-
-1. 创建一个Java基本类
-2. 根据基本类，构建数据模型（即创建一个新的Java类，用来存放相关的数据库操作方法）
-3. 如果对类的某些字段有特殊需求，也可以进行特殊处理，因此需要添加注解，如主键，列名或者表名，唯一标识等等
+附上博客地址：
+[数据库代码自动生成器](https://blog.csdn.net/byxyrq/article/details/105563758 "数据库代码自动生成器")
 
 ---------------------------
 ## Step1. 构建注解
 
-接下来第一步，我们需要创建自己的注解类型，分为两种注解类型，类注解和属性注解，分别对应数据库的表和列，在这里我们需要注意：
+第一步，我们需要创建自己的注解类型，分为两种注解类型，类注解和属性注解，分别对应数据库的表和列，在这里我们需要注意：
 
 1. 是不是这个Bean的所有非`static`和`final`修饰的属性都需要创建到这张表中；
 2. 这个Bean有没有主键列对应的属性；
@@ -742,14 +731,16 @@ JAVA对象转数据库类型的键值对`ContetnValues`获取:
 
 ![alt 执行前Bean.class](https://img-blog.csdnimg.cn/20200416175951450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J5eHlycQ==,size_16,color_FFFFFF,t_70#pic_center "执行前Bean.class")
 </br>
-![alt 执行前Model.class](https://github.com/yueandr/SQLUtil/blob/master/picture/1.png "执行前Model.class")
+![alt 执行前Model.class](https://img-blog.csdnimg.cn/20200416180027276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J5eHlycQ==,size_16,color_FFFFFF,t_70#pic_center "执行前Model.class")
 
 执行后：
 
-![alt 执行后Bean.class]( "执行后Bean.class")
+![alt 执行后Bean.class](https://img-blog.csdnimg.cn/20200416180057458.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J5eHlycQ==,size_16,color_FFFFFF,t_70#pic_center "执行后Bean.class")
 </br>
-![alt 导包前Model.class]( "导包前Model.class")
+![alt 导包前Model.class](https://img-blog.csdnimg.cn/20200416180123756.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J5eHlycQ==,size_16,color_FFFFFF,t_70#pic_center "导包前Model.class")
 
 导包后：
 
-![alt 导包后Model.class]( "导包后Model.class")
+![alt 导包后Model.class](https://img-blog.csdnimg.cn/20200416180148139.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J5eHlycQ==,size_16,color_FFFFFF,t_70#pic_center "导包后Model.class")
+
+
